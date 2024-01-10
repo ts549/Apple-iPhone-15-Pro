@@ -51,7 +51,7 @@ align-items: center;
 justify-content: center;
 
 span{
-    color: white;
+    color: #bdb7ad;
     font-size: 0.8em;
 }
 `
@@ -85,19 +85,49 @@ min-height: 70vh;
 
 position: relative;
 overflow: hidden;
-display: flex:
-flex-direction: row;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
-span{
+span:first-child{
+    color: #bdb7ad;
+    font-size: 2em;
+    padding-top: 60px;
+}
+
+span:last-child{
     color: white;
-    font-size: 1em;
+    font-size: 1.2em;
+    position: relative;
 }
 
 video{
-    width: 100%;
+    width: 70%;
     height: 50%;
     object-fit: cover;
     object-position: bottom;
+    position: relative;
+}
+
+button{
+    background-color: #0071e3;
+    color: white;
+    width: 70px;
+    height: 40px;
+    margin-bottom: 15px;
+    border-radius: 19px;
+    outline: none;
+    border: none;
+}
+
+button:hover{
+    background-color: #1a7fe6;
+    cursor: pointer;
+}
+
+button:active{
+    background-color: #0066cc;
 }
 `
 

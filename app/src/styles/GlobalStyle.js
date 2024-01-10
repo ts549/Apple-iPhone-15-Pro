@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import fontLight from "../assets/fonts/SourceSansPro-Light.ttf";
 import fontRegular from "../assets/fonts/SourceSansPro-Regular.ttf";
+import fontSequel from "../assets/fonts/sequel-sans-medium-disp.ttf";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -24,6 +25,13 @@ h1,h2,h3,h4,h5,h6{
 @font-face {
     font-family: 'Source Sans Pro';
     src: local('Source Sans Pro), url(${fontRegular}) format("truetype");
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sequel Sans Medium';
+    src: local('Sequel Sans Medium), url(${fontSequel}) format("truetype");
     font-display: swap;
     font-style: normal;
 }
