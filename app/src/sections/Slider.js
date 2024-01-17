@@ -1,8 +1,17 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useLayoutEffect} from 'react';
 import './Slider.css';
 import dataSlider from '../components/dataSlider.js';
 import BtnSlider from '../components/BtnSlider.js';
 import styled from 'styled-components';
+import { keyframes } from 'styled-components';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+const moveUp = keyframes`
+100%{
+    transform: translateY(0)
+}
+`
 
 const Section = styled.section`
 width: 100vw;
@@ -20,6 +29,7 @@ div:first-child {
     flex-direction: row;
     column-gap: 20px;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 span {
@@ -27,12 +37,30 @@ span {
     font-size: 3em;
     font-weight: 500;
     margin-right: 540px;
+    // transform: translateY(3rem);
+    // animation-name: ${moveUp};
+    // animation-duration: 2.5s;
+    // animation-timing-function: ease;
+    // animation-fill-mode: forwards;
 }
 
 a {
     height: 30px;
     width: auto;
     color: #2997ff;
+    // transform: translateY(3rem);
+    // animation-name: ${moveUp};
+    // animation-duration: 2.5s;
+    // animation-timing-function: ease;
+    // animation-fill-mode: forwards;
+}
+
+// a:first-child {
+//     animation-delay: 0.4s;
+// }
+
+a:last-child {
+    animation-delay: 0.8s;
 }
 `
 
@@ -99,12 +127,49 @@ export default function Slider() {
         }
     }
 
+    gsap.registerPlugin(ScrollTrigger)
+    const spanRef = useRef(null)
+
+    useLayoutEffect(() => {
+        var Elem = spanRef.current;
+        gsap.fromTo(Elem, {translateY: 50}, {translateY: 0, duration: 1, scrollTrigger: {
+            trigger: Elem,
+            start: "top-=500 top",
+            toggleActions: "play none reverse none",
+            end: "bottom-=500 bottom"
+        }});
+    }, [])
+
+    const a1Ref = useRef(null)
+
+    useLayoutEffect(() => {
+        var Elem = a1Ref.current;
+        gsap.fromTo(Elem, {translateY: 50}, {translateY: 0, duration: 1, scrollTrigger: {
+            trigger: Elem,
+            start: "top-=485 top",
+            toggleActions: "play none reverse none",
+            end: "bottom-=485 bottom"
+        }})
+    }, [])
+
+    const a2Ref = useRef(null)
+
+    useLayoutEffect(() => {
+        var Elem = a2Ref.current;
+        gsap.fromTo(Elem, {translateY: 50}, {translateY: 0, duration: 1, scrollTrigger: {
+            trigger: Elem,
+            start: "top-=450 top",
+            toggleActions: "play none reverse none",
+            end: "bottom-=450 bottom"
+        }})
+    }, [])
+
     return (
         <Section>
             <div>
-                <span>Get the highlights.</span>
-                <a href="/">Watch the film</a>
-                <a href="/">Watch the event</a>
+                <span ref={spanRef}>Get the highlights.</span>
+                <a ref={a1Ref} href="/">Watch the film</a>
+                <a ref={a2Ref} href="/">Watch the event</a>
             </div>
             <ContainerSlider>
                 {dataSlider.map((obj, index) => {
