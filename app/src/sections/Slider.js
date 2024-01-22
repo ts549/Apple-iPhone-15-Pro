@@ -7,12 +7,6 @@ import { keyframes } from 'styled-components';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
-const moveUp = keyframes`
-100%{
-    transform: translateY(0)
-}
-`
-
 const Section = styled.section`
 width: 100vw;
 height: 100vh;
@@ -37,30 +31,12 @@ span {
     font-size: 3em;
     font-weight: 500;
     margin-right: 540px;
-    // transform: translateY(3rem);
-    // animation-name: ${moveUp};
-    // animation-duration: 2.5s;
-    // animation-timing-function: ease;
-    // animation-fill-mode: forwards;
 }
 
 a {
     height: 30px;
     width: auto;
     color: #2997ff;
-    // transform: translateY(3rem);
-    // animation-name: ${moveUp};
-    // animation-duration: 2.5s;
-    // animation-timing-function: ease;
-    // animation-fill-mode: forwards;
-}
-
-// a:first-child {
-//     animation-delay: 0.4s;
-// }
-
-a:last-child {
-    animation-delay: 0.8s;
 }
 `
 
@@ -76,11 +52,20 @@ height: 100%;
 position: absolute;
 opacity: ${props => props.active ? 1 : 0};
 overflow: hidden;
+border-radius: 20px;
 
 video {
     object-fit: cover;
     width: 1200px;
     height: 700px;
+}
+
+span {
+    color: white;
+    width: 800px;
+    height: 700px;
+    font-size: 2rem;
+    position: absolute;
 }
 `
 
@@ -180,6 +165,7 @@ export default function Slider() {
                         onEnded={slideIndex === index + 1 ? nextSlide : null}
                         >
                             <video ref={videoRefs[index]} autoPlay muted src={process.env.PUBLIC_URL + `/videos/slide_${index + 1}.mp4`} />
+                            {/* <span>{obj.title}</span> */}
                         </Slide>
                     )
                 })}
