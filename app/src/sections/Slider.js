@@ -1,5 +1,4 @@
 import React, {useState, useRef, useLayoutEffect} from 'react';
-import './Slider.css';
 import dataSlider from '../components/dataSlider.js';
 import BtnSlider from '../components/BtnSlider.js';
 import styled from 'styled-components';
@@ -17,6 +16,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 row-gap: 30px;
+overflow: hidden;
+max-width: 100%;
 
 div:first-child {
     display: flex;

@@ -7,6 +7,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 const ModelContainer = styled.section`
 width: 100vw;
 height: 100vh;
+max-width: 100%;
 overflow: hidden;
 
 background-color: black;

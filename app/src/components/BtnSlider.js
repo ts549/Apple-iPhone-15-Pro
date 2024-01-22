@@ -1,5 +1,4 @@
 import React from 'react';
-import "../sections/Slider.css";
 import leftArrow from "../assets/Image/left-arrow.svg";
 import rightArrow from "../assets/Image/right-arrow.svg";
 import styled from 'styled-components';

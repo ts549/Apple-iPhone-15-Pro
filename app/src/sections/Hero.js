@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import heroVideo from '../assets/video/large_2x.mp4';
+import logo from '../assets/Image/logo.PNG';
+import search from '../assets/Image/search.PNG';
+import bag from '../assets/Image/bag.PNG';
 
 const Section = styled.section`
 width: 100vw;
 height: 100vh;
+max-width: 100%;
 background-color: black;
 position: relative;
+overflow:hidden;
 `
 
 const HeaderContainer = styled.div`
@@ -143,7 +148,7 @@ function Hero() {
             </HeaderContainer>
             <NavContainer>
                 <Nav>
-                    <span> Logo </span>
+                    <img src={logo} alt="logo"/>
                     <span> Store </span>
                     <span> Mac </span>
                     <span> iPad </span>
@@ -155,15 +160,15 @@ function Hero() {
                     <span> Entertainment </span>
                     <span> Accessories </span>
                     <span> Support </span>
-                    <span> Sch </span>
-                    <span> Bag </span>
+                    <img src={search} alt="sch"/>
+                    <img src={bag} alt="bag"/>
                 </Nav>
             </NavContainer>
             <PromoContainer>
                 <Promo>
                     <span>
                         Get $200-$650 in credit toward iPhone 15 Pro when you
-                        trade in iPhone 11 or higher. Buy.
+                        trade in iPhone 11 or higher.
                     </span>
                 </Promo>
             </PromoContainer>
